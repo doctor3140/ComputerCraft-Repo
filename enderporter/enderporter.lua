@@ -6,7 +6,7 @@
 --define for place to output redstone signal
 outputSide = "bottom"
 modemSide = "right"
-ID = 2
+ID = 0
 
 
 --void function that listens to modem
@@ -17,7 +17,8 @@ function listen(side, ID)
     while (msg ~= ID) do
 	msg = rednet.receive()
     end
-    print(ID, "sent")
+    rednet.send(ID, true)
+    print(ID.." teleported")
 end
 
 --main
